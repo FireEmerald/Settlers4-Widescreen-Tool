@@ -1,4 +1,4 @@
-# The Settlers 4: Widescreen Tool
+# ![logo](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/raw/master/icons/settlers_4_2_150.png) The Settlers 4: Widescreen Tool
 #### Veni vidi vici - Gaius Iulius Caesar
 
 ## Introduction
