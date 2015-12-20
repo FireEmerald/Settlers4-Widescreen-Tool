@@ -159,7 +159,7 @@ Partial Class fmMainWindow
         Me.btnPlay.Name = "btnPlay"
         Me.btnPlay.Size = New System.Drawing.Size(75, 23)
         Me.btnPlay.TabIndex = 9
-        Me.btnPlay.Text = "Start It!"
+        Me.btnPlay.Text = "Start Now!"
         Me.btnPlay.UseVisualStyleBackColor = True
         '
         'fmMainWindow
@@ -174,7 +174,9 @@ Partial Class fmMainWindow
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnApply)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "fmMainWindow"
         Me.Text = "The Settlers 4: Widescreen Tool"
         Me.GroupBox1.ResumeLayout(False)
