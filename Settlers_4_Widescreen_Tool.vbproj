@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>Settlers_4_Widescreen_Tool.My.MyApplication</StartupObject>
     <RootNamespace>Settlers_4_Widescreen_Tool</RootNamespace>
-    <AssemblyName>The Settlers 4 Widescreen Tool</AssemblyName>
+    <AssemblyName>The Settlers 4 - Widescreen Tool</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -20,7 +21,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>The Settlers 4 Widescreen Tool.xml</DocumentationFile>
+    <DocumentationFile>The Settlers 4 - Widescreen Tool.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
@@ -32,7 +33,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>The Settlers 4 Widescreen Tool.xml</DocumentationFile>
+    <DocumentationFile>The Settlers 4 - Widescreen Tool.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
@@ -56,10 +57,11 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Settlers4_Test.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -132,7 +134,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="Settlers4_Test.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dlls\GfxEngine_1366x768.dll" />
