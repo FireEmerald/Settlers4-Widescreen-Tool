@@ -24,7 +24,7 @@ This Tool allows you to play **The Settlers 4** in resolutions up to Full HD.
 ## Requirements
 
 - Platform: Windows (32/64bit)
-- Supported: Windows 2000 or later
+- Supported: Windows 2000 until Windows 7. You may get errors from the game itself under Windows 8 and newer!
 - .NET Framework ≥ 3.5
 - MS Visual Studio Express ≥ 2012
 
@@ -34,11 +34,11 @@ Just run the **[The Settlers 4 - Widescreen Tool.exe](https://github.com/FireEme
 
 ## Reporting issues
 
-Use the Github Issuetracker to report a bug.
+Use the Github [Issuetracker](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/issues) to report a bug.
 
 ## Submitting fixes
 
-Fixes are submitted as pull request via Github or as code in a issue.
+Fixes are submitted as [pull request](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/pulls) via Github or as code in a issue.
 
 ## Copyright
 

@@ -46,7 +46,7 @@ Partial Class fmMainWindow
         Me.cbBackup.Location = New System.Drawing.Point(173, 21)
         Me.cbBackup.Name = "cbBackup"
         Me.cbBackup.Size = New System.Drawing.Size(229, 17)
-        Me.cbBackup.TabIndex = 0
+        Me.cbBackup.TabIndex = 7
         Me.cbBackup.Text = "Backup (GfxEngine.dll / GameSettings.cfg)"
         Me.cbBackup.UseVisualStyleBackColor = True
         '
@@ -55,16 +55,16 @@ Partial Class fmMainWindow
         Me.btnOpenFileDialog_S4_exe.Location = New System.Drawing.Point(360, 20)
         Me.btnOpenFileDialog_S4_exe.Name = "btnOpenFileDialog_S4_exe"
         Me.btnOpenFileDialog_S4_exe.Size = New System.Drawing.Size(36, 23)
-        Me.btnOpenFileDialog_S4_exe.TabIndex = 1
+        Me.btnOpenFileDialog_S4_exe.TabIndex = 5
         Me.btnOpenFileDialog_S4_exe.Text = "..."
         Me.btnOpenFileDialog_S4_exe.UseVisualStyleBackColor = True
         '
         'btnApply
         '
-        Me.btnApply.Location = New System.Drawing.Point(260, 256)
+        Me.btnApply.Location = New System.Drawing.Point(175, 256)
         Me.btnApply.Name = "btnApply"
         Me.btnApply.Size = New System.Drawing.Size(75, 23)
-        Me.btnApply.TabIndex = 2
+        Me.btnApply.TabIndex = 1
         Me.btnApply.Text = "Apply"
         Me.btnApply.UseVisualStyleBackColor = True
         '
@@ -85,7 +85,7 @@ Partial Class fmMainWindow
         Me.tbS4_exe_Filepath.Location = New System.Drawing.Point(9, 22)
         Me.tbS4_exe_Filepath.Name = "tbS4_exe_Filepath"
         Me.tbS4_exe_Filepath.Size = New System.Drawing.Size(345, 20)
-        Me.tbS4_exe_Filepath.TabIndex = 5
+        Me.tbS4_exe_Filepath.TabIndex = 4
         Me.tbS4_exe_Filepath.Text = Global.Settlers_4_Widescreen_Tool.My.MySettings.Default.S4_exe_Filepath
         '
         'cbResolutions
@@ -96,7 +96,7 @@ Partial Class fmMainWindow
         Me.cbResolutions.Location = New System.Drawing.Point(9, 19)
         Me.cbResolutions.Name = "cbResolutions"
         Me.cbResolutions.Size = New System.Drawing.Size(152, 21)
-        Me.cbResolutions.TabIndex = 4
+        Me.cbResolutions.TabIndex = 6
         '
         'GroupBox2
         '
@@ -114,7 +114,7 @@ Partial Class fmMainWindow
         Me.btnExit.Location = New System.Drawing.Point(345, 256)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)
-        Me.btnExit.TabIndex = 6
+        Me.btnExit.TabIndex = 3
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
@@ -151,14 +151,14 @@ Partial Class fmMainWindow
         Me.tbMessages.ReadOnly = True
         Me.tbMessages.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.tbMessages.Size = New System.Drawing.Size(386, 92)
-        Me.tbMessages.TabIndex = 6
+        Me.tbMessages.TabIndex = 8
         '
         'btnPlay
         '
-        Me.btnPlay.Location = New System.Drawing.Point(175, 256)
+        Me.btnPlay.Location = New System.Drawing.Point(260, 256)
         Me.btnPlay.Name = "btnPlay"
         Me.btnPlay.Size = New System.Drawing.Size(75, 23)
-        Me.btnPlay.TabIndex = 9
+        Me.btnPlay.TabIndex = 2
         Me.btnPlay.Text = "Start Now!"
         Me.btnPlay.UseVisualStyleBackColor = True
         '
