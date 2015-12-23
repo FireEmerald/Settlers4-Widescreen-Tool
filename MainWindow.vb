@@ -139,11 +139,28 @@ Public Class fmMainWindow
             Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKOWN, _UnkownInfo)
         End If
 
+        Dim _BackupFiles As Boolean = (cbBackup.CheckState = CheckState.Checked)
+
+        '// Validate the Hash of the existing DLL against the known Hashes.
+        Dim _GfxEngine_SHA1Hash As String = SHA1_CalculateHash(_fiGfxEngine)
+        If IsNothing(_AvailableResolutions.FirstOrDefault(Function(r) String.Equals(r.Dll_SHA1Hash, _GfxEngine_SHA1Hash))) Then
+            If MessageBox.Show("Your GfxEngine.dll is invalid. The patch could break your game!" & Environment.NewLine & "Would you like to continue anyway?" & Environment.NewLine & Environment.NewLine & "(A Backup (*.bak) will be created)", "Unkown Version of GfxEngine.dll", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+                cbBackup.CheckState = CheckState.Checked
+                _BackupFiles = True
+            Else
+                Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKOWN, "GfxEngine.dll - INVALID HASH\nPatching aborted, due to invalid GfxEngine.dll. Make sure you installed:\nThe Settlers IV: Gold Edition")
+            End If
+        End If
+
         '// Create a backup of the existing files if desired.
-        If cbBackup.CheckState = CheckState.Checked AndAlso Not File.Exists(_fiGameSettings.FullName & ".bak") AndAlso Not File.Exists(_fiGfxEngine.FullName & ".bak") Then
-            _fiGameSettings.CopyTo(_fiGameSettings.FullName & ".bak", False)
-            _fiGfxEngine.CopyTo(_fiGfxEngine.FullName & ".bak", False)
-            Message("GameSettings.cfg and GfxEngine.dll backed up as *.bak files.\n")
+        If _BackupFiles Then
+            If Not File.Exists(_fiGameSettings.FullName & ".bak") AndAlso Not File.Exists(_fiGfxEngine.FullName & ".bak") Then
+                _fiGameSettings.CopyTo(_fiGameSettings.FullName & ".bak", False)
+                _fiGfxEngine.CopyTo(_fiGfxEngine.FullName & ".bak", False)
+                Message("GameSettings.cfg and GfxEngine.dll backed up as *.bak files.\n")
+            Else
+                Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKOWN, "Patching aborted, due to already existing backup(s). Make sure theres no:\nGfxEngine.dll.bak or GameSettings.cfg.bak")
+            End If
         End If
 
         '// Determine the correct GameResolution with the Index from the ComboBox. Then write the INI settings.
