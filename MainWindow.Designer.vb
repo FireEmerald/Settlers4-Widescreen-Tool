@@ -27,6 +27,7 @@ Partial Class fmMainWindow
         Me.btnOpenFileDialog_S4_exe = New System.Windows.Forms.Button()
         Me.btnApply = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.tbS4_exe_Filepath = New System.Windows.Forms.TextBox()
         Me.cbResolutions = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btnExit = New System.Windows.Forms.Button()
@@ -34,7 +35,6 @@ Partial Class fmMainWindow
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.tbMessages = New System.Windows.Forms.TextBox()
         Me.btnPlay = New System.Windows.Forms.Button()
-        Me.tbS4_exe_Filepath = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -78,6 +78,15 @@ Partial Class fmMainWindow
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "1. Settlers 4 (S4.exe) Executable"
+        '
+        'tbS4_exe_Filepath
+        '
+        Me.tbS4_exe_Filepath.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Settlers_4_Widescreen_Tool.My.MySettings.Default, "S4_exe_Filepath", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbS4_exe_Filepath.Location = New System.Drawing.Point(9, 22)
+        Me.tbS4_exe_Filepath.Name = "tbS4_exe_Filepath"
+        Me.tbS4_exe_Filepath.Size = New System.Drawing.Size(345, 20)
+        Me.tbS4_exe_Filepath.TabIndex = 4
+        Me.tbS4_exe_Filepath.Text = Global.Settlers_4_Widescreen_Tool.My.MySettings.Default.S4_exe_Filepath
         '
         'cbResolutions
         '
@@ -154,15 +163,6 @@ Partial Class fmMainWindow
         Me.btnPlay.Text = "Start Now!"
         Me.btnPlay.UseVisualStyleBackColor = True
         '
-        'tbS4_exe_Filepath
-        '
-        Me.tbS4_exe_Filepath.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Settlers_4_Widescreen_Tool.My.MySettings.Default, "S4_exe_Filepath", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.tbS4_exe_Filepath.Location = New System.Drawing.Point(9, 22)
-        Me.tbS4_exe_Filepath.Name = "tbS4_exe_Filepath"
-        Me.tbS4_exe_Filepath.Size = New System.Drawing.Size(345, 20)
-        Me.tbS4_exe_Filepath.TabIndex = 4
-        Me.tbS4_exe_Filepath.Text = Global.Settlers_4_Widescreen_Tool.My.MySettings.Default.S4_exe_Filepath
-        '
         'fmMainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -179,6 +179,7 @@ Partial Class fmMainWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "fmMainWindow"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "The Settlers 4: Widescreen Tool"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
