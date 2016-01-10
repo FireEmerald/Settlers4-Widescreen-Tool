@@ -60,7 +60,10 @@ Partial Class fmReadMeWindow
         Me.ClientSize = New System.Drawing.Size(468, 215)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "fmReadMeWindow"
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "README"
         Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
