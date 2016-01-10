@@ -1,4 +1,23 @@
-﻿Imports System.IO
+﻿'* Copyright (C) 2015-2016 FireEmerald <https://github.com/FireEmerald>
+'*
+'* Project: Settlers4-Widescreen-Tool
+'*
+'* Requires: .NET Framework 3.5 or higher.
+'*
+'* This program is free software; you can redistribute it and/or modify it
+'* under the terms of the GNU General Public License as published by the
+'* Free Software Foundation; either version 2 of the License, or (at your
+'* option) any later version.
+'*
+'* This program is distributed in the hope that it will be useful, but WITHOUT
+'* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+'* FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+'* more details.
+'*
+'* You should have received a copy of the GNU General Public License along
+'* with this program. If not, see <http://www.gnu.org/licenses/>.
+
+Imports System.IO
 Imports System.Security.Cryptography
 
 Public Class fmMainWindow
@@ -24,6 +43,8 @@ Public Class fmMainWindow
     Private Const INI_KEY_FULLSCREEN As String = "Fullscreen"
     Private Const INI_KEY_SCREENMODE As String = "Screenmode"
     Private Const INI_DEFAULT_VALUE As String = ""
+
+    Private _ReadMeWindow As fmReadMeWindow
 
 #Region "GameSettings Handling"
     ''' <summary>
@@ -57,15 +78,16 @@ Public Class fmMainWindow
     Private Sub Button_Handler(sender As Object, e As EventArgs) Handles btnApply.Click, _
                                                                          btnExit.Click, _
                                                                          btnOpenFileDialog_S4_exe.Click, _
-                                                                         btnPlay.Click
+                                                                         btnPlay.Click, _
+                                                                         lblVersion.Click
         Select Case True
             Case sender Is btnApply
                 If cbResolutions.SelectedIndex >= 0 And tbS4_exe_Filepath.Text.Length > 0 Then
                     tbMessages.Clear()
 
                     Dim _NewResolution As GameResolution = ApplyNewResolution()
-                    If _NewResolution.GameResolution = GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKOWN Then
-                        Message(_NewResolution.UnkownInfo)
+                    If _NewResolution.GameResolution = GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKNOWN Then
+                        Message(_NewResolution.UnknownInfo)
                     Else
                         Message(String.Format("\nChanges applied successfully. Resolution set to {0} x {1} Pixel.", _
                                               _NewResolution.Width, _NewResolution.Height))
@@ -95,26 +117,34 @@ Public Class fmMainWindow
                 Else
                     Message("The Settlers 4 is already running.")
                 End If
+            Case sender Is lblVersion
+                ShowReadMeWindow()
             Case Else
-                Throw New Exception("Button not handeled.")
+                Throw New Exception("Button not handled.")
         End Select
     End Sub
 
     Private Sub fmMainWindow_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        lblVersion.Text = "Version: " & Application.ProductVersion
+        lblVersion.Text = "Version: " & Application.ProductVersion & " (README)"
 
         Dim _DetectedResolution As GameResolution = GetCurrentResolution()
-        If _DetectedResolution.GameResolution = GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKOWN Then
-            Message(_DetectedResolution.UnkownInfo)
+        If _DetectedResolution.GameResolution = GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKNOWN Then
+            Message(_DetectedResolution.UnknownInfo)
         Else
             Message("Existing settings successfully read.")
         End If
         SetCheckBoxResolution(_DetectedResolution)
+
+        '// Show README if the tool was started the first time.
+        If My.Settings.SkipReadMe = False Then
+            My.Settings.SkipReadMe = True
+            ShowReadMeWindow()
+        End If
     End Sub
 
     Private Sub SetCheckBoxResolution(Resolution As GameResolution)
         Select Case Resolution.GameResolution
-            Case GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKOWN, _
+            Case GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKNOWN, _
                  GameResolution.AVAILABLE_RESOLUTIONS.RES_DEFAULT, _
                  GameResolution.AVAILABLE_RESOLUTIONS.RES_1024_600, _
                  GameResolution.AVAILABLE_RESOLUTIONS.RES_1280_720, _
@@ -134,9 +164,9 @@ Public Class fmMainWindow
         Dim _fiS4_exe As FileInfo = Nothing, _fiGameSettings As FileInfo = Nothing, _fiGfxEngine As FileInfo = Nothing
 
         '// Perform the initial checks and get the FileInfos. If we get a empty string, all is OK.
-        Dim _UnkownInfo As String = PerformInitialChecks(_fiS4_exe, _fiGameSettings, _fiGfxEngine)
-        If Not String.Equals(_UnkownInfo, String.Empty) Then
-            Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKOWN, _UnkownInfo)
+        Dim _UnknownInfo As String = PerformInitialChecks(_fiS4_exe, _fiGameSettings, _fiGfxEngine)
+        If Not String.Equals(_UnknownInfo, String.Empty) Then
+            Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKNOWN, _UnknownInfo)
         End If
 
         Dim _BackupFiles As Boolean = (cbBackup.CheckState = CheckState.Checked)
@@ -144,11 +174,11 @@ Public Class fmMainWindow
         '// Validate the Hash of the existing DLL against the known Hashes.
         Dim _GfxEngine_SHA1Hash As String = SHA1_CalculateHash(_fiGfxEngine)
         If IsNothing(_AvailableResolutions.FirstOrDefault(Function(r) String.Equals(r.Dll_SHA1Hash, _GfxEngine_SHA1Hash))) Then
-            If MessageBox.Show("Your GfxEngine.dll is invalid. The patch could break your game!" & Environment.NewLine & "Would you like to continue anyway?" & Environment.NewLine & Environment.NewLine & "(A Backup (*.bak) will be created)", "Unkown Version of GfxEngine.dll", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            If MessageBox.Show("Your GfxEngine.dll is invalid. The patch could break your game!" & Environment.NewLine & "Would you like to continue anyway?" & Environment.NewLine & Environment.NewLine & "(A Backup (*.bak) will be created)", "Unknown Version of GfxEngine.dll", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
                 cbBackup.CheckState = CheckState.Checked
                 _BackupFiles = True
             Else
-                Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKOWN, "GfxEngine.dll - INVALID HASH\nPatching aborted, due to invalid GfxEngine.dll. Make sure you installed:\nThe Settlers IV: Gold Edition")
+                Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKNOWN, "GfxEngine.dll - INVALID HASH\nPatching aborted, due to invalid GfxEngine.dll. Make sure you installed:\nThe Settlers IV: Gold Edition")
             End If
         End If
 
@@ -159,7 +189,7 @@ Public Class fmMainWindow
                 _fiGfxEngine.CopyTo(_fiGfxEngine.FullName & ".bak", False)
                 Message("GameSettings.cfg and GfxEngine.dll backed up as *.bak files.\n")
             Else
-                Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKOWN, "Patching aborted, due to already existing backup(s). Make sure theres no:\nGfxEngine.dll.bak or GameSettings.cfg.bak")
+                Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKNOWN, "Patching aborted, due to already existing backup(s). Make sure theres no:\nGfxEngine.dll.bak or GameSettings.cfg.bak")
             End If
         End If
 
@@ -169,7 +199,7 @@ Public Class fmMainWindow
            Not INI_WriteValueToFile(INI_SECTION, INI_KEY_WIDTH, _Resolution.Width, _fiGameSettings.FullName) Or _
            Not INI_WriteValueToFile(INI_SECTION, INI_KEY_FULLSCREEN, "1", _fiGameSettings.FullName) Or _
            Not INI_WriteValueToFile(INI_SECTION, INI_KEY_SCREENMODE, "2", _fiGameSettings.FullName) Then
-            Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKOWN, "A unkown error occured, while writing your GameSettings.cfg!\nPlease open the file with Notepad and check the content. It should look like:\n[GAMESETTINGS]\n{\n    AILevel = 0\nand so on...\nYou could also try to delete the file, it will be created new.")
+            Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKNOWN, "A unknown error occurred, while writing your GameSettings.cfg!\nPlease open the file with Notepad and check the content. It should look like:\n[GAMESETTINGS]\n{\n    AILevel = 0\nand so on...\nYou could also try to delete the file, it will be created new.")
         Else
             Message("GameSettings.cfg - PATCHED OK !")
             'Message(String.Format("GameSettings.cfg:\n{0} set to {1}.\n{2} set to {3}\n{4} set to {5}\n{6} set to {7}", _
@@ -212,9 +242,9 @@ Public Class fmMainWindow
         Dim _fiS4_exe As FileInfo = Nothing, _fiGameSettings As FileInfo = Nothing, _fiGfxEngine As FileInfo = Nothing
 
         '// Perform the initial checks and get the FileInfos. If we get a empty string, all is OK.
-        Dim _UnkownInfo As String = PerformInitialChecks(_fiS4_exe, _fiGameSettings, _fiGfxEngine)
-        If Not String.Equals(_UnkownInfo, String.Empty) Then
-            Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKOWN, _UnkownInfo)
+        Dim _UnknownInfo As String = PerformInitialChecks(_fiS4_exe, _fiGameSettings, _fiGfxEngine)
+        If Not String.Equals(_UnknownInfo, String.Empty) Then
+            Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKNOWN, _UnknownInfo)
         End If
 
         '// Read the height and width from the INI file.
@@ -230,7 +260,7 @@ Public Class fmMainWindow
         If Not IsNothing(_CurrentResolution_fromGameSettings) AndAlso Not IsNothing(_CurrentResolution_fromGfxEngine) AndAlso _CurrentResolution_fromGameSettings.GameResolution = _CurrentResolution_fromGfxEngine.GameResolution Then
             Return _CurrentResolution_fromGfxEngine
         Else
-            Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKOWN, "Your GameSettings.cfg and GfxEngine.dll doesn't fit together.\nSelect any Resolution and click Apply to correct this.")
+            Return New GameResolution(GameResolution.AVAILABLE_RESOLUTIONS.RES_UNKNOWN, "Your GameSettings.cfg and GfxEngine.dll doesn't fit together.\nSelect any Resolution and click Apply to correct this.")
         End If
     End Function
 
@@ -238,7 +268,7 @@ Public Class fmMainWindow
         Const BLOCKSIZE As Integer = 256 * 256
 
         Using _SHA1 As New SHA1CryptoServiceProvider, _fs As New FileStream(FileToHash.FullName, FileMode.Open, FileAccess.Read, FileShare.Read)
-            '// Get filesize
+            '// Get file size
             Dim _fileSize As Long = _fs.Length
 
             '// Declare buffer + other vars
@@ -246,7 +276,7 @@ Public Class fmMainWindow
             Dim _transformBuffer As Byte(), transformBytes As Integer, _transformBytesTotal As Long = 0
             '// Read first block
             _readBytes = _fs.Read(_readBuffer, 0, BLOCKSIZE)
-            '// Read + transform blockwise
+            '// Read + transform block wise
             While _readBytes > 0
                 '// Save last read
                 _transformBuffer = _readBuffer
@@ -279,6 +309,16 @@ Public Class fmMainWindow
         Next
         Return _sb.ToString.ToUpper
     End Function
+
+    Private Sub ShowReadMeWindow()
+        If IsNothing(_ReadMeWindow) OrElse _ReadMeWindow.IsDisposed Then
+            _ReadMeWindow = New fmReadMeWindow
+            _ReadMeWindow.Show()
+        Else
+            _ReadMeWindow.Show()
+            _ReadMeWindow.Focus()
+        End If
+    End Sub
 
     Private Sub Message(FormattedMessage As String)
         '// \n is interpreted as a new line.

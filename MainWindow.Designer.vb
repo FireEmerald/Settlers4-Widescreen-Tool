@@ -27,7 +27,6 @@ Partial Class fmMainWindow
         Me.btnOpenFileDialog_S4_exe = New System.Windows.Forms.Button()
         Me.btnApply = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.tbS4_exe_Filepath = New System.Windows.Forms.TextBox()
         Me.cbResolutions = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btnExit = New System.Windows.Forms.Button()
@@ -35,6 +34,7 @@ Partial Class fmMainWindow
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.tbMessages = New System.Windows.Forms.TextBox()
         Me.btnPlay = New System.Windows.Forms.Button()
+        Me.tbS4_exe_Filepath = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -79,15 +79,6 @@ Partial Class fmMainWindow
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "1. Settlers 4 (S4.exe) Executable"
         '
-        'tbS4_exe_Filepath
-        '
-        Me.tbS4_exe_Filepath.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Settlers_4_Widescreen_Tool.My.MySettings.Default, "S4_exe_Filepath", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.tbS4_exe_Filepath.Location = New System.Drawing.Point(9, 22)
-        Me.tbS4_exe_Filepath.Name = "tbS4_exe_Filepath"
-        Me.tbS4_exe_Filepath.Size = New System.Drawing.Size(345, 20)
-        Me.tbS4_exe_Filepath.TabIndex = 4
-        Me.tbS4_exe_Filepath.Text = Global.Settlers_4_Widescreen_Tool.My.MySettings.Default.S4_exe_Filepath
-        '
         'cbResolutions
         '
         Me.cbResolutions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -121,12 +112,13 @@ Partial Class fmMainWindow
         'lblVersion
         '
         Me.lblVersion.AutoSize = True
+        Me.lblVersion.Cursor = System.Windows.Forms.Cursors.Help
         Me.lblVersion.ForeColor = System.Drawing.SystemColors.ButtonShadow
         Me.lblVersion.Location = New System.Drawing.Point(9, 266)
         Me.lblVersion.Name = "lblVersion"
-        Me.lblVersion.Size = New System.Drawing.Size(85, 13)
+        Me.lblVersion.Size = New System.Drawing.Size(140, 13)
         Me.lblVersion.TabIndex = 7
-        Me.lblVersion.Text = "Version: X.X.X.X"
+        Me.lblVersion.Text = "Version: X.X.X.X (README)"
         '
         'GroupBox3
         '
@@ -161,6 +153,15 @@ Partial Class fmMainWindow
         Me.btnPlay.TabIndex = 2
         Me.btnPlay.Text = "Start Now!"
         Me.btnPlay.UseVisualStyleBackColor = True
+        '
+        'tbS4_exe_Filepath
+        '
+        Me.tbS4_exe_Filepath.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Settlers_4_Widescreen_Tool.My.MySettings.Default, "S4_exe_Filepath", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbS4_exe_Filepath.Location = New System.Drawing.Point(9, 22)
+        Me.tbS4_exe_Filepath.Name = "tbS4_exe_Filepath"
+        Me.tbS4_exe_Filepath.Size = New System.Drawing.Size(345, 20)
+        Me.tbS4_exe_Filepath.TabIndex = 4
+        Me.tbS4_exe_Filepath.Text = Global.Settlers_4_Widescreen_Tool.My.MySettings.Default.S4_exe_Filepath
         '
         'fmMainWindow
         '

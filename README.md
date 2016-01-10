@@ -5,7 +5,7 @@
 
 This Tool allows you to play **The Settlers 4** in resolutions up to Full HD.
 
-### Supported Resolutions
+### Supported resolutions
 
 - Default Resolution
 - 1024 x 600 Pixel (17:10)
@@ -21,16 +21,30 @@ This Tool allows you to play **The Settlers 4** in resolutions up to Full HD.
 
 ![preview](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/blob/master/application/preview.png)
 
+## In-game compare (1280x1024 <> 1920x1080)
+
+![ingame](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/raw/master/icons/compare.png)
+
 ## Requirements
 
 - Platform: Windows (32/64bit)
 - Supported: Windows 2000 until Windows 7. You may get errors from the game itself under Windows 8 and newer!
 - .NET Framework ≥ 3.5
-- MS Visual Studio Express ≥ 2012
+- Microsoft Visual Studio ≥ 2013
 
 ## How to use
 
 Just run the **[The Settlers 4 - Widescreen Tool.exe](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/raw/master/application/The%20Settlers%204%20-%20Widescreen%20Tool.exe)**. No installation required.
+
+## FAQ / READ ME
+
+- The Tool was tested under Windows 7 and The Settlers 4 - Gold Edition (**v2.50.1508**).
+
+- If you fight as mayan the music stops to play after a fight.
+> This is a known bug, it was never fixed. You can start the music again, if you move ingame the **Sound FX** slider under *Settings* > *Sound settings*.
+
+- The Game doesn't start in a virtual machine. (*Software/Hardware 3D : Error initializing Graphic Interface !*)
+> There are a couple of threads where people write about this problem, but none of them found a way to start the game... me too.
 
 ## Reporting issues
 
@@ -42,6 +56,6 @@ Fixes are submitted as [pull request](https://github.com/FireEmerald/Settlers4-W
 
 ## Copyright
 
-Copyright (C) 2015 by [FireEmerald](https://github.com/FireEmerald)
+Copyright (C) 2015-2016 by [FireEmerald](https://github.com/FireEmerald)
 
 License: [GPL 3.0](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/blob/master/doc/GPL_3_0.txt)

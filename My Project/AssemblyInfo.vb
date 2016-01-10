@@ -14,7 +14,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Play the Settlers 4 in a Resolution, up to FullHD.")> 
 <Assembly: AssemblyCompany("")> 
 <Assembly: AssemblyProduct("The Settlers 4: Gold Edition Widescreen Tool")> 
-<Assembly: AssemblyCopyright("Copyright © FireEmerald 2015")> 
+<Assembly: AssemblyCopyright("Copyright © FireEmerald 2016")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)> 
@@ -33,7 +33,7 @@ Imports System.Runtime.InteropServices
 ' übernehmen, indem Sie "*" eingeben:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.1.0")> 
-<Assembly: AssemblyFileVersion("1.0.1.0")> 
+<Assembly: AssemblyVersion("1.0.2.0")> 
+<Assembly: AssemblyFileVersion("1.0.2.0")> 
 
 <Assembly: NeutralResourcesLanguageAttribute("en")> 

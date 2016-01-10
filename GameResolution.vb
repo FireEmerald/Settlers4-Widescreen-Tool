@@ -1,6 +1,25 @@
-﻿Public Class GameResolution
+﻿'* Copyright (C) 2015-2016 FireEmerald <https://github.com/FireEmerald>
+'*
+'* Project: Settlers4-Widescreen-Tool
+'*
+'* Requires: .NET Framework 3.5 or higher.
+'*
+'* This program is free software; you can redistribute it and/or modify it
+'* under the terms of the GNU General Public License as published by the
+'* Free Software Foundation; either version 2 of the License, or (at your
+'* option) any later version.
+'*
+'* This program is distributed in the hope that it will be useful, but WITHOUT
+'* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+'* FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+'* more details.
+'*
+'* You should have received a copy of the GNU General Public License along
+'* with this program. If not, see <http://www.gnu.org/licenses/>.
+
+Public Class GameResolution
     Public Enum AVAILABLE_RESOLUTIONS
-        RES_UNKOWN = -1
+        RES_UNKNOWN = -1
         RES_DEFAULT = 0
         RES_1024_600 = 1
         RES_1280_720 = 2
@@ -13,16 +32,16 @@
     End Enum
 
     Private _GameResolution As AVAILABLE_RESOLUTIONS
-    Private _Width, _Height, _Dll_SHA1Hash, _UnkownInfo As String
+    Private _Width, _Height, _Dll_SHA1Hash, _UnknownInfo As String
     Private _CheckBoxIndex As Integer
     Private _Dll As Byte()
 
-    Sub New(GameResolution As AVAILABLE_RESOLUTIONS, Optional UnkownInfo As String = "")
+    Sub New(GameResolution As AVAILABLE_RESOLUTIONS, Optional UnknownInfo As String = "")
         _GameResolution = GameResolution
-        _UnkownInfo = UnkownInfo
+        _UnknownInfo = UnknownInfo
 
         Select Case GameResolution
-            Case AVAILABLE_RESOLUTIONS.RES_UNKOWN
+            Case AVAILABLE_RESOLUTIONS.RES_UNKNOWN
                 _Width = ""
                 _Height = ""
                 _Dll_SHA1Hash = ""
@@ -83,7 +102,7 @@
                 _CheckBoxIndex = 8
                 _Dll = My.Resources.GfxEngine_1920x1200
             Case Else
-                Throw New Exception("GameResolution not handeled.")
+                Throw New Exception("GameResolution not handled.")
         End Select
     End Sub
 
@@ -107,9 +126,9 @@
             Return _Dll_SHA1Hash
         End Get
     End Property
-    Public ReadOnly Property UnkownInfo As String
+    Public ReadOnly Property UnknownInfo As String
         Get
-            Return _UnkownInfo
+            Return _UnknownInfo
         End Get
     End Property
     Public ReadOnly Property CheckBoxIndex As Integer
