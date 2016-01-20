@@ -25,26 +25,29 @@ This Tool allows you to play **The Settlers 4** in resolutions up to Full HD.
 
 ![ingame](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/raw/master/icons/compare.png)
 
-## Requirements
-
-- Platform: Windows (32/64bit)
-- Supported: Windows 2000 until Windows 7. You may get errors from the game itself under Windows 8 and newer!
-- .NET Framework ≥ 3.5
-- Microsoft Visual Studio ≥ 2013
-
 ## How to use
 
 Just run the **[The Settlers 4 - Widescreen Tool.exe](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/raw/master/application/The%20Settlers%204%20-%20Widescreen%20Tool.exe)**. No installation required.
 
 ## FAQ / READ ME
 
-- The Tool was tested under Windows 7 and The Settlers 4 - Gold Edition (**v2.50.1508**).
+The Tool was tested under Windows 7 and The Settlers 4 - Gold Edition (**v2.50.1508**).
 
-- If you fight as mayan the music stops to play after a fight.
-> This is a known bug, it was never fixed. You can start the music again, if you move ingame the **Sound FX** slider under *Settings* > *Sound settings*.
+- Q: If you fight as mayan the music stops to play after a fight.
+> A: This is a known bug, it was never fixed. You can start the music again, if you move ingame the **Sound FX** slider under *Settings* > *Sound settings*.
 
-- The Game doesn't start in a virtual machine. (*Software/Hardware 3D : Error initializing Graphic Interface !*)
-> There are a couple of threads where people write about this problem, but none of them found a way to start the game... me too.
+- Q: The Game doesn't start in a virtual machine. (*Software/Hardware 3D : Error initializing Graphic Interface !*)
+> A: There are a couple of threads where people write about this problem, but none of them found a way to start the game... me too.
+
+- Q: *Fatal error: Exception 0xc0000005 at 0x00468bd0!*
+> A: Occures if something went wrong while using trading routes via ship (but not limited to this). It's a bug from the game itself.
+
+## Requirements
+
+- Platform: Windows (32/64bit)
+- Supported: Windows 2000 until Windows 7. You may get errors from the game itself under Windows 8 and newer!
+- .NET Framework ≥ 3.5
+- Microsoft Visual Studio ≥ 2013
 
 ## Reporting issues
 
