@@ -1,4 +1,4 @@
-# ![logo](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/raw/master/icons/settlers_4_2_150.png) The Settlers 4: Widescreen Tool
+# ![logo](icons/settlers_4_2_150.png) The Settlers 4: Widescreen Tool
 #### Veni vidi vici - Gaius Iulius Caesar
 
 ## Introduction
@@ -19,11 +19,11 @@ This Tool allows you to play **The Settlers 4** in resolutions up to Full HD.
 
 ## Preview image
 
-![preview](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/blob/master/application/preview.png)
+![preview](application/preview.png)
 
 ## In-game compare (1280x1024 <> 1920x1080)
 
-![ingame](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/raw/master/icons/compare.png)
+[![ingame](icons/thumbnail.png)](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/raw/master/icons/compare.png)
 
 ## How to use
 
@@ -61,4 +61,4 @@ Fixes are submitted as [pull request](https://github.com/FireEmerald/Settlers4-W
 
 Copyright (C) 2015-2016 by [FireEmerald](https://github.com/FireEmerald)
 
-License: [GPL 3.0](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/blob/master/doc/GPL_3_0.txt)
+License: [GPL 3.0](doc/GPL_3_0.txt)
