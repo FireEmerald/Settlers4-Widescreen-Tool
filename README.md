@@ -27,7 +27,7 @@ This Tool allows you to play **The Settlers 4** in resolutions up to Full HD.
 
 ## How to use
 
-Just run the **[The Settlers 4 - Widescreen Tool.exe](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/raw/master/release/The%20Settlers%204%20-%20Widescreen%20Tool.exe)**. No installation required.
+Just run the **[The Settlers 4 - Widescreen Tool.exe](https://github.com/FireEmerald/Settlers4-Widescreen-Tool/raw/master/pre-compiled/The%20Settlers%204%20-%20Widescreen%20Tool.exe)**. No installation required.
 
 ## FAQ / READ ME
 
