@@ -59,6 +59,6 @@ Fixes are submitted as [pull request](https://github.com/FireEmerald/Settlers4-W
 
 ## Copyright
 
-Copyright (C) 2015-2016 by [FireEmerald](https://github.com/FireEmerald)
+Copyright (C) 2015-2017 by [FireEmerald](https://github.com/FireEmerald)
 
 License: [GPL 3.0](LICENSE)
