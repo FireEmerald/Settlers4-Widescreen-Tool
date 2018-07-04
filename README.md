@@ -37,7 +37,7 @@ The Tool was tested under Windows 7 and The Settlers 4 - Gold Edition (**v2.50.1
 > A: This is a known bug, it was never fixed. You can start the music again, if you move ingame the **Sound FX** slider under *Settings* > *Sound settings*.
 
 - Q: The Game doesn't start in a virtual machine. (*Software/Hardware 3D : Error initializing Graphic Interface !*)
-> A: There are a couple of threads where people write about this problem, but none of them found a way to start the game... me too.
+> A: ~~There are a couple of threads where people write about this problem, but none of them found a way to start the game... me too.~~ There is a fix on [Github](https://github.com/elishacloud/dxwrapper/wiki/The-Settlers-IV).
 
 - Q: *Fatal error: Exception 0xc0000005 at 0x00468bd0!*
 > A: Occures if something went wrong while using trading routes via ship (but not limited to this). It's a bug from the game itself.
