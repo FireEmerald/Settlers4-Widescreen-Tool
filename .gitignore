@@ -27,4 +27,5 @@ obj/
 _ReSharper*/
 
 #Repository specific
-Sources/
+dev/
+
