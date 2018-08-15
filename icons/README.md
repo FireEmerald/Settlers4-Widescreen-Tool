@@ -1,1 +1,0 @@
-Source: http://thedoctor45.deviantart.com/art/The-Settlers-IV-Custom-Icons-211616791
