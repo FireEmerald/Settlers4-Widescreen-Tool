@@ -106,7 +106,7 @@
                                 <TextBlock>Trojans</TextBlock>
                             </Border>
                             <Border Grid.Row="1" Grid.Column="1">
-                                <TextBlock>O</TextBlock>
+                                <TextBlock>-</TextBlock>
                             </Border>
                             <Border Grid.Row="2" Grid.Column="1">
                                 <TextBlock>X</TextBlock>
@@ -122,7 +122,7 @@
                                 <TextBlock>Mission CD</TextBlock>
                             </Border>
                             <Border Grid.Row="1" Grid.Column="2">
-                                <TextBlock>O</TextBlock>
+                                <TextBlock>-</TextBlock>
                             </Border>
                             <Border Grid.Row="2" Grid.Column="2">
                                 <TextBlock>X</TextBlock>
@@ -138,36 +138,36 @@
                                 <TextBlock>Die Neue Welt</TextBlock>
                             </Border>
                             <Border Grid.Row="1" Grid.Column="3">
-                                <TextBlock>O</TextBlock>
+                                <TextBlock>-</TextBlock>
                             </Border>
                             <Border Grid.Row="2" Grid.Column="3">
-                                <TextBlock>O</TextBlock>
+                                <TextBlock>-</TextBlock>
                             </Border>
                             <Border Grid.Row="3" Grid.Column="3">
                                 <TextBlock>X</TextBlock>
                             </Border>
                             <Border Grid.Row="4" Grid.Column="3" BorderThickness="1 1 0 1">
-                                <TextBlock>O</TextBlock>
+                                <TextBlock>-</TextBlock>
                             </Border>
 
                             <Border Grid.Row="0" Grid.Column="4" BorderThickness="1 1 1 0">
                                 <TextBlock>Community Pack</TextBlock>
                             </Border>
                             <Border Grid.Row="1" Grid.Column="4" BorderThickness="1 1 1 0">
-                                <TextBlock>O</TextBlock>
+                                <TextBlock>-</TextBlock>
                             </Border>
                             <Border Grid.Row="2" Grid.Column="4" BorderThickness="1 1 1 0">
-                                <TextBlock>O</TextBlock>
+                                <TextBlock>-</TextBlock>
                             </Border>
                             <Border Grid.Row="3" Grid.Column="4" BorderThickness="1 1 1 1">
-                                <TextBlock>O</TextBlock>
+                                <TextBlock>-</TextBlock>
                             </Border>
                             <Border Grid.Row="4" Grid.Column="4" BorderThickness="1 1 1 1">
-                                <TextBlock>O</TextBlock>
+                                <TextBlock>-</TextBlock>
                             </Border>
                         </Grid>
 
-                        <TextBlock FontSize="12" HorizontalAlignment="Right">X = Contains, O = Missing</TextBlock>
+                        <TextBlock FontSize="12" HorizontalAlignment="Right">X = Contains, - = Missing</TextBlock>
 
                         <TextBlock Style="{StaticResource TextBlockHeader}"><Bold>Settlers 4 Add Ons:</Bold> (require installed base game, maybe already included as shown above)</TextBlock>
                         <!-- https://www.amazon.de/Die-Siedler-Trojaner-Elixier-Macht/dp/B00005MF0E -->
