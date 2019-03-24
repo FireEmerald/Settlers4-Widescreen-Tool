@@ -15,7 +15,7 @@ namespace Settlers.Toolbox.Infrastructure.Cabinet
 
         public CabFile(int index, string name)
         {
-            if (index < 0) throw new ArgumentNullException(nameof(index));
+            if (index < 0) throw new IndexOutOfRangeException($"{nameof(CabFile)} {nameof(index)} is negative ({index}).");
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(nameof(name));
             
             Index = index;

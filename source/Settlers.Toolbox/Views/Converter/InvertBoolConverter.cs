@@ -12,7 +12,6 @@ namespace Settlers.Toolbox.Views.Converter
             if (!(value is bool)) throw new InvalidOperationException($"Passed type is invalid, {nameof(InvertBoolConverter)} requires a {typeof(bool)}.");
 
             return !(bool) value;
-
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

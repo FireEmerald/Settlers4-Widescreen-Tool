@@ -27,9 +27,7 @@ namespace Settlers.Toolbox.Infrastructure.Network
             if (destinationFile == null) throw new ArgumentNullException(nameof(destinationFile));
 
             if (destinationFile.Exists)
-            {
                 throw new IOException($"Unable to download file '{fileUrl}', destination file does already exist '{destinationFile.FullName}'.");
-            }
 
             WebClient client = InitializeWebClient();
 

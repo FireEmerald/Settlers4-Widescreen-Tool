@@ -140,9 +140,7 @@ namespace Settlers.Toolbox.Model.Resolutions
             var gameSettingsFile = new FileInfo(Path.Combine(installDir.FullName, GAMESETTINGS_RELATIVE_PATH));
 
             if (!gameSettingsFile.Exists)
-            {
                 throw new FileNotFoundException($"Unable to access '{GAMESETTINGS_RELATIVE_PATH}', file does not exist.");
-            }
 
             // TODO: FireEmerald: Validate values and move perhaps to const/enum e.g.
             _IniFileAdapter.WriteValueToFile(GAMESETTINGS_SECTION, GAMESETTINGS_KEY_BORDERSCROLL, "1", gameSettingsFile.FullName);
