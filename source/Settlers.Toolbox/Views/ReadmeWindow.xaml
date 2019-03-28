@@ -1,0 +1,207 @@
+﻿<Window x:Class="Settlers.Toolbox.Views.ReadmeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:properties="clr-namespace:Settlers.Toolbox.Views.Properties"
+        mc:Ignorable="d"
+        Title="Readme" Height="450" Width="750" ResizeMode="CanResizeWithGrip"
+        Style="{StaticResource {x:Type Window}}" FontSize="13" UseLayoutRounding="True">
+    
+    <Window.Resources>
+        <Style TargetType="{x:Type Expander}" BasedOn="{StaticResource {x:Type Expander}}">
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Margin" Value="5 5 5 0"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="FontWeight" Value="Normal"></Setter>
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        </Style>
+        <Style x:Key="TextBlockHeader" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="Margin" Value="0 0 0 5"></Setter>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="#FFFFFF"></Setter>
+            <Setter Property="BorderThickness" Value="1 1 0 0"></Setter>
+            <Setter Property="Padding" Value="4 2"></Setter>
+
+            <Style.Triggers>
+                <Trigger Property="Grid.Column" Value="0">
+                    <Setter Property="Background" Value="#878787"></Setter>
+                </Trigger>
+                <Trigger Property="Grid.Row" Value="0">
+                    <Setter Property="Background" Value="#878787"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Height="100" Source="Images/roman-settler.png" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <TextBlock FontSize="16" Margin="0 0 0 10">WELCOME / WILLKOMMEN / BIENVENUE / BENVENUTO</TextBlock>
+                <TextBlock FontSize="20" Style="{StaticResource TextBlockHeader}">The Settlers 4: Widescreen Tool</TextBlock>
+                <TextBlock FontSize="16">by FireEmerald <Hyperlink NavigateUri="https://github.com/FireEmerald" properties:IsExternalLinkProperty.IsExternalLink="True">&lt;https://github.com/FireEmerald&gt;</Hyperlink> (C) 2018</TextBlock>
+            </StackPanel>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <Expander Header="IMPORTANT NOTICE FOR USERS OF AN ANTIVIRUS E.G. 'KASPERSKY'." IsExpanded="True" BorderBrush="Red">
+                    <TextBlock>You may get a pop-up from Kaspersky Internet Security <Bold>in the background</Bold> after you started the game, resulting in a infinite loading screen. Tap out of the loading screen and allow/whitelist the <Italic>S4_Main.exe</Italic>.</TextBlock>
+                </Expander>
+                <Expander Header="The installed Settlers 4 is missing certain content (Add-ons)?" >
+                    <StackPanel>
+                        <TextBlock>There are three versions of Settlers 4 and four add-ons available.</TextBlock>
+
+                        <Grid Margin="0 5">
+                            <Grid.Resources>
+                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                                </Style>
+                            </Grid.Resources>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Row="1" Grid.Column="0">
+                                <TextBlock>Settlers 4 Retail CD</TextBlock>
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="0">
+                                <TextBlock>Settlers 4 GOG Edition</TextBlock>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="0">
+                                <TextBlock>Settlers 4 Gold Edition</TextBlock>
+                            </Border>
+                            <Border Grid.Row="4" Grid.Column="0" BorderThickness="1 1 0 1">
+                                <TextBlock>Settlers 4 History Edition</TextBlock>
+                            </Border>
+
+                            <Border Grid.Row="0" Grid.Column="1">
+                                <TextBlock>Trojans</TextBlock>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="1">
+                                <TextBlock>-</TextBlock>
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="1">
+                                <TextBlock>X</TextBlock>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="1">
+                                <TextBlock>X</TextBlock>
+                            </Border>
+                            <Border Grid.Row="4" Grid.Column="1" BorderThickness="1 1 0 1">
+                                <TextBlock>X</TextBlock>
+                            </Border>
+
+                            <Border Grid.Row="0" Grid.Column="2">
+                                <TextBlock>Mission CD</TextBlock>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="2">
+                                <TextBlock>-</TextBlock>
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="2">
+                                <TextBlock>X</TextBlock>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="2">
+                                <TextBlock>X</TextBlock>
+                            </Border>
+                            <Border Grid.Row="4" Grid.Column="2" BorderThickness="1 1 0 1">
+                                <TextBlock>X</TextBlock>
+                            </Border>
+
+                            <Border Grid.Row="0" Grid.Column="3">
+                                <TextBlock>Die Neue Welt</TextBlock>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="3">
+                                <TextBlock>-</TextBlock>
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="3">
+                                <TextBlock>-</TextBlock>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="3">
+                                <TextBlock>X</TextBlock>
+                            </Border>
+                            <Border Grid.Row="4" Grid.Column="3" BorderThickness="1 1 0 1">
+                                <TextBlock>-</TextBlock>
+                            </Border>
+
+                            <Border Grid.Row="0" Grid.Column="4" BorderThickness="1 1 1 0">
+                                <TextBlock>Community Pack</TextBlock>
+                            </Border>
+                            <Border Grid.Row="1" Grid.Column="4" BorderThickness="1 1 1 0">
+                                <TextBlock>-</TextBlock>
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="4" BorderThickness="1 1 1 0">
+                                <TextBlock>-</TextBlock>
+                            </Border>
+                            <Border Grid.Row="3" Grid.Column="4" BorderThickness="1 1 1 1">
+                                <TextBlock>-</TextBlock>
+                            </Border>
+                            <Border Grid.Row="4" Grid.Column="4" BorderThickness="1 1 1 1">
+                                <TextBlock>-</TextBlock>
+                            </Border>
+                        </Grid>
+
+                        <TextBlock FontSize="12" HorizontalAlignment="Right">X = Contains, - = Missing</TextBlock>
+
+                        <TextBlock Style="{StaticResource TextBlockHeader}"><Bold>Settlers 4 Add Ons:</Bold> (require installed base game, maybe already included as shown above)</TextBlock>
+                        <!-- https://www.amazon.de/Die-Siedler-Trojaner-Elixier-Macht/dp/B00005MF0E -->
+                        <TextBlock>• The Trojans and the Elixir of Power: Adds the "Add On" menu.</TextBlock>
+
+                        <!-- https://www.amazon.de/Die-Siedler-4-Mission-Disk/dp/B00005M0NG -->
+                        <TextBlock>• Mission Disk: Adds the "Mission CD" menu.</TextBlock>
+
+                        <!-- https://www.amazon.de/Die-Siedler-neue-Welt-Add/dp/B00006RYXT -->
+                        <TextBlock>• Die neue Welt: Adds the "Die neue Welt" menu, only released in German.</TextBlock>
+
+                        <!-- https://www.amazon.de/Die-Siedler-4-Community-Pack/dp/B0000DA74G -->
+                        <TextBlock>• Community Pack: Contains a campaign and various additional maps created by users.</TextBlock>
+                    </StackPanel>
+                </Expander>
+                <Expander Header="You have ≥2 monitors and the mouse is moving to the second display?">
+                    <TextBlock>To fix this problem tap out of the game and then re-tap into it using hotkeys e.g. <Italic>[WIN]</Italic> or <Italic>[ALT] + [TAB]</Italic>.</TextBlock>
+                </Expander>
+                <Expander Header="Trading routes do not work properly. All trading ships do not move.">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource TextBlockHeader}">If you get this bug it's already to late and you have to load a save game where the bug wasn't present. It will not help to build a new trading ship nor a new harbor. The key to avoid this issue is:</TextBlock>
+                        <TextBlock>• Only set the number of goods to be transported as high as the number of units which you have.</TextBlock>
+                    </StackPanel>
+                </Expander>
+                <Expander Header="If you fight as mayan the music stops to play after a fight.">
+                    <TextBlock>This is a known bug, it was never fixed. You can start the music again while playing, if you move the Sound FX slider under <Italic>Settings > Sound settings</Italic>.</TextBlock>
+                </Expander>
+                <Expander Header="The Game doesn't start in a virtual machine. (Software/Hardware 3D : Error initializing Graphic Interface)">
+                    <TextBlock>There are a couple of threads where people write about this problem, but none of them found a way to start the game... me too.</TextBlock>
+                </Expander>
+                <Expander Header="Fatal error: Exception 0xc0000005 at 0x00468bd0!">
+                    <TextBlock>Occurs if something went wrong while using trading routes via ship (but not limited to this). It's a bug from the game itself.</TextBlock>
+                </Expander>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
