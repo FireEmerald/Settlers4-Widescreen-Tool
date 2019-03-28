@@ -4,7 +4,7 @@ using System.IO;
 
 using Settlers.Toolbox.Infrastructure;
 using Settlers.Toolbox.Infrastructure.ExtensionMethods;
-using Settlers.Toolbox.Infrastructure.Reporting.Interfaces;
+using Settlers.Toolbox.Infrastructure.Logging;
 using Settlers.Toolbox.Model.Textures.Interfaces;
 
 namespace Settlers.Toolbox.Model.Textures
@@ -15,14 +15,8 @@ namespace Settlers.Toolbox.Model.Textures
 
         private readonly Dictionary<string, string> _FileMappings;
 
-        private readonly IReportManager _ReportManager;
-
-        public TextureSwapper(IReportManager reportManager)
+        public TextureSwapper()
         {
-            if (reportManager == null) throw new ArgumentNullException(nameof(reportManager));
-
-            _ReportManager = reportManager;
-
             _FileMappings = new Dictionary<string, string>
             {
                 // Tropical    ,  Default
@@ -59,9 +53,9 @@ namespace Settlers.Toolbox.Model.Textures
             Result texturesChanged = ChangeTextures(installDir, true);
 
             if (!texturesChanged.Success)
-                _ReportManager.ReportMessage(texturesChanged.ErrorMessage);
+                LogAdapter.Log(LogLevel.Error, texturesChanged.ErrorMessage);
 
-            _ReportManager.ReportMessage(texturesChanged.Success
+            LogAdapter.Log(LogLevel.Information, texturesChanged.Success
                 ? "Texture pack activated ... OK"
                 : "Texture pack activated ... FAILED");
         }
@@ -73,9 +67,9 @@ namespace Settlers.Toolbox.Model.Textures
             Result texturesChanged = ChangeTextures(installDir, false);
 
             if (!texturesChanged.Success)
-                _ReportManager.ReportMessage(texturesChanged.ErrorMessage);
+                LogAdapter.Log(LogLevel.Error, texturesChanged.ErrorMessage);
 
-            _ReportManager.ReportMessage(texturesChanged.Success
+            LogAdapter.Log(LogLevel.Information, texturesChanged.Success
                 ? "Texture pack deactivated ... OK"
                 : "Texture pack deactivated ... FAILED");
         }

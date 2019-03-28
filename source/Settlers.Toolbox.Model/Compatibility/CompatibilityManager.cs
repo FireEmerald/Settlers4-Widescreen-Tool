@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-using Settlers.Toolbox.Infrastructure.Reporting.Interfaces;
+using Settlers.Toolbox.Infrastructure.Logging;
 using Settlers.Toolbox.Model.Compatibility.Interfaces;
 
 namespace Settlers.Toolbox.Model.Compatibility
@@ -12,15 +12,6 @@ namespace Settlers.Toolbox.Model.Compatibility
     {
         private const string D3DIMM_RELATIVE_PATH = @"Exe\D3DImm.dll";
         private const string DDRAW_RELATIVE_PATH  = @"Exe\DDraw.dll";
-
-        private readonly IReportManager _ReportManager;
-
-        public CompatibilityManager(IReportManager reportManager)
-        {
-            if (reportManager == null) throw new ArgumentNullException(nameof(reportManager));
-
-            _ReportManager = reportManager;
-        }
 
         public bool IsFixApplied(DirectoryInfo installDir)
         {
@@ -48,7 +39,7 @@ namespace Settlers.Toolbox.Model.Compatibility
             
             File.WriteAllBytes(dDrawFile.FullName, Properties.Resources.DDraw);
 
-            _ReportManager.ReportMessage("Compatibility fix applied ... OK");
+            LogAdapter.Log(LogLevel.Information, "Compatibility fix applied ... OK");
         }
 
         public void RemoveFix(DirectoryInfo installDir)
@@ -63,7 +54,7 @@ namespace Settlers.Toolbox.Model.Compatibility
                     file.Delete();
             }
 
-            _ReportManager.ReportMessage("Compatibility fix removed ... OK");
+            LogAdapter.Log(LogLevel.Information, "Compatibility fix removed ... OK");
         }
 
         private IReadOnlyList<FileInfo> GetCompatibilityDllFiles(DirectoryInfo installDir)
